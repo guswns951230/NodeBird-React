@@ -3,8 +3,6 @@ import Head from 'next/head';
 import 'antd/dist/antd.css';
 import wrapper from '../store/configureStore';
 
-import wrapper from '../store/configureStore';
-
 const NodeBird = ({ Component }) => {
   return (
     <>

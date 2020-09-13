@@ -1,6 +1,12 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { CloseOutlined } from '@ant-design/icons';
 
+export const Global = createGlobalStyle`
+  .slick-slide{
+    display: inline-block;
+  }
+`;
+
 export const Overlay = styled.div`
   position: fixed;
   z-index: 5000;
@@ -61,11 +67,5 @@ export const Indicator = styled.div`
     text-align: center;
     color: white;
     font-size: 15px;
-  }
-`;
-
-export const Global = createGlobalStyle`
-  .slick-slide{
-    display: inline-block;
   }
 `;

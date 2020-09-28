@@ -1,7 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const { User } = require('../models');
-const { noExtendLeft } = require('sequelize/types/lib/operators');
 
 const router = express.Router();
 
@@ -21,6 +20,7 @@ router.post('/', async (req, res, next) => { // POST /user/
             nickname: req.body.nickname,
             password: hashedPassword,
         });
+        // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3060')
         res.status(201).send('ok');
     } catch (error) {
         console.log(error);

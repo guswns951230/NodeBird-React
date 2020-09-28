@@ -49,18 +49,16 @@ function* unfollow(action) {
 }
 
 function logInAPI(data) {
-  return axios.post('/api/login', data) // 실제로 서버에 요청
+  return axios.post('/user/login', data); // 실제로 서버에 요청
 }
 
 // call: 동기 함수 호출, fork: 비동기 함수 호출
 function* logIn(action) {
   try {
-    console.log('saga logIn');
-    // const result = yield call(logInAPI) // 요청의 결과를 받음
-    yield delay(2000);
+    const result = yield call(logInAPI, action.data); // 요청의 결과를 받음
     yield put({
       type: LOG_IN_SUCCESS,
-      data: action.data,
+      data: result.data,
     });
   } catch (err) {
     yield put({
@@ -71,7 +69,7 @@ function* logIn(action) {
 }
 
 function logOutAPI() {
-  return axios.post('/api/logout') // 실제로 서버에 요청
+  return axios.post('/user/logout') // 실제로 서버에 요청
 }
 
 function* logOut() {
@@ -90,7 +88,7 @@ function* logOut() {
 }
 
 function signUpAPI(data) {
-  return axios.post('http://localhost:3065/user', data) // 실제로 서버에 요청
+  return axios.post('/user', data) // 실제로 서버에 요청
 }
 
 function* signUp(action) {

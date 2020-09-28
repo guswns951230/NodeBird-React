@@ -8,11 +8,11 @@ import PostImages from './PostImages';
 import CommentForm from './CommentForm';
 import PostCardContent from './PostCardContent';
 import { REMOVE_POST_REQUEST } from '../reducers/post';
-import FollowButton from '../components/FollowButton';
+import FollowButton from './FollowButton';
 
 
 const PostCard = ({ post }) => {
-  const dispatch = useDispatch();
+  const id = useSelector((state) => state.user.me?.id); // ?. optional chaining 연산자
   const { removePostLoading } = useSelector((state) => state.post);
   const [liked, setLiked] = useState(false);
   const [commentFormOpened, setCommentFormOpened] = useState(false);
@@ -31,7 +31,7 @@ const PostCard = ({ post }) => {
     })
   }, []);
 
-  const id = useSelector((state) => state.user.me?.id); // ?. optional chaining 연산자
+  const dispatch = useDispatch();
 
   return (
     <div style={{ marginBottom: 20 }}>

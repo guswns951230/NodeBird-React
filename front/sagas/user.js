@@ -74,8 +74,7 @@ function logOutAPI() {
 
 function* logOut() {
   try {
-    // const result = yield call(logOutAPI) // 요청의 결과를 받음
-    yield delay(1000);
+    yield call(logOutAPI) // 요청의 결과를 받음
     yield put({
       type: LOG_OUT_SUCCESS,
     });
